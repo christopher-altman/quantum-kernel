@@ -6,9 +6,9 @@ The implementation is built using PennyLane, PyTorch, and custom kernel-simulati
 
 This repository contains reproducible implementations of:
 
-	-	quantum kernel estimators for multiple circuit ansätze
-	-	expressivity metrics including rank profiles, spectral decay, and trace norms
-	-	controlled experiments comparing depth, entanglement strength, and encoding dimensionality
+- quantum kernel estimators for multiple feature maps
+- expressivity metrics including rank, spectrum, and capacity measures
+- controlled experiments comparing depth, width, and data regimesdata regimes
 
 All experiments can be executed directly via the provided scripts and notebooks. Default configurations reproduce the key expressivity results without modification.
 
