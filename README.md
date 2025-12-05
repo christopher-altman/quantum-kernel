@@ -8,7 +8,7 @@ This repository contains reproducible implementations of:
 
 - quantum kernel estimators for multiple feature maps
 - expressivity metrics including rank, spectrum, and capacity measures
-- controlled experiments comparing depth, width, and data regimesdata regimes
+- controlled experiments comparing depth, width, and data regimes
 
 All experiments can be executed directly via the provided scripts and notebooks. Default configurations reproduce the key expressivity results without modification.
 
@@ -99,7 +99,7 @@ pip install -r requirements.txt
 ```
 ### Run example experiment
 ```
-python src/experiments/run_expressivity.py –depth 4 –entanglement full
+python src/experiments/run_expressivity.py --depth 4 --entanglement full
 ```
 ### Generate figures
 ```
