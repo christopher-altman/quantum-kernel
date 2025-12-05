@@ -1,0 +1,9 @@
+<svg width="350" height="350" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="180" cy="180" r="150" fill="#f0f5ff" stroke="#3f3f3f" stroke-width="3"/>
+  <circle cx="180" cy="180" r="60" fill="#d3f3ff" stroke="#3f3f3f" stroke-width="2"/>
+  <text x="180" y="50" text-anchor="middle" font-size="16" font-family="sans-serif">
+    Hilbert Manifold
+  </text>
+  <line x1="180" y1="120" x2="180" y2="240" stroke="black" stroke-width="2"/>
+  <line x1="120" y1="180" x2="240" y2="180" stroke="black" stroke-width="2"/>
+</svg>

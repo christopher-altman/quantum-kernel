@@ -1,0 +1,151 @@
+\documentclass{article}
+
+\usepackage[final]{neurips_2024}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{float}
+
+\title{
+Temporal Hamiltonian-Driven Quantum Feature Embeddings Reveal Expressivity Phase Transitions
+}
+
+\author{
+Christopher Altman\\
+\texttt{christopheraltman.com}\\
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Expressivity in quantum machine learning models is generally framed as an architectural property---more qubits, deeper circuits, wider parameterization. We show instead that expressivity may be induced through purely dynamical means: the evolution of a quantum system under a simple entangling Hamiltonian. We construct a hybrid classical dataset whose geometry is induced by time evolution under $H = Z \otimes Z + X \otimes I$, and demonstrate that sweeping a frequency parameter in a 4-qubit feature embedding produces measurable phase transitions in classification accuracy, kernel matrix rank, and spectral entropy. These results highlight time as a first-order resource for quantum representation learning.
+\end{abstract}
+
+\section{Hybrid Dataset from Temporal Evolution}
+
+Let
+\[
+H = Z \otimes Z + X \otimes I,
+\quad
+U(t) = \exp(-i t H),
+\]
+with evolution time $t \in [0, 2\pi]$. We sample random two-qubit product states parameterized by angles $(\theta_1,\phi_1,\theta_2,\phi_2)$ and evolve them under $U(t)$.
+
+We extract expectations
+\[
+\langle Z_0 \rangle,
+\qquad
+\langle Z_0 Z_1 \rangle
+\]
+and map these into a 2D classical feature space
+\[
+x_0 = t / 2\pi,
+\quad
+x_1 = \tfrac12 \langle Z_0 \rangle + \tfrac12 \langle Z_0 Z_1 \rangle.
+\]
+
+Labels are assigned according to the sign of a mixed temporal-entanglement signal
+\[
+y = \mathbb{1}\big(\langle Z_0 \rangle + 0.7\langle Z_0 Z_1 \rangle + 0.3\cos t > 0\big).
+\]
+
+Thus the dataset is classical, but its geometry encodes latent quantum dynamics.
+
+\section{Temporal Feature Embedding}
+
+We embed $(x_0,x_1)$ into a 4-qubit register using a frequency parameter $\omega$:
+\[
+|\psi(x)\rangle = E_{\omega}(x)|0\cdots 0\rangle.
+\]
+We implement $E_\omega$ using:
+(i) data-reuploading rotations
+(ii) a cyclic entangling layer.
+
+Quantum kernel evaluation is performed via
+\[
+K(x_i,x_j) = |\langle \psi(x_i) | \psi(x_j) \rangle|^2.
+\]
+
+We sweep $\omega \in [1,20]$, revealing frequency-driven transitions.
+
+\section{Expressivity Metrics}
+
+We evaluate:
+
+\textbf{Classification Accuracy} using a precomputed-kernel SVM.
+
+\textbf{Kernel Rank:}
+\[
+\mathrm{rank}(K) = |\{ \lambda_i > 10^{-8} \}|.
+\]
+
+\textbf{Spectral Entropy:}
+\[
+H(K) = -\sum_i p_i \log p_i,
+\quad
+p_i = \lambda_i / \sum_j \lambda_j.
+\]
+
+\vspace{0.75em}
+Figure \ref{fig:acc} shows non-monotonic accuracy curves; Figure \ref{fig:entropy} highlights a strong rise in entropy.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\linewidth]{diagrams/accuracy_vs_omega_ideal.png}
+\caption{Accuracy vs encoding frequency $\omega$. Peak indicates optimal representational curvature.}
+\label{fig:acc}
+\end{figure}
+
+\section{Results and Observations}
+
+We observe that:
+
+\begin{itemize}
+    \item Accuracy improves sharply as $\omega$ increases.
+    \item Kernel rank increases monotonically with $\omega$.
+    \item Spectral entropy increases smoothly, reaching a plateau.
+\end{itemize}
+
+We interpret this as an expressivity phase transition:
+
+Low-frequency encodings collapse samples into low-dimensional manifolds; medium-frequency embeddings induce curvature sufficient for separability; high frequencies oversaturate the feature space but maintain expressivity.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\linewidth]{diagrams/entropy_vs_omega_ideal.png}
+\caption{Spectral entropy vs frequency. Temporal evolution induces richly distributed eigenvalue spectra.}
+\label{fig:entropy}
+\end{figure}
+
+\section*{Formal Statement of Findings}
+
+Let $E_\omega$ denote the frequency-parameterized embedding circuit
+and $K_\omega$ the induced quantum kernel. Then empirically we observe:
+
+\textbf{Claim 1.} 
+There exists $\omega^\star$ such that 
+$\mathrm{acc}(K_{\omega^\star}) > \mathrm{acc}(K_{\omega})$ 
+for all $\omega < \omega^\star$ under fixed training set size.
+
+\textbf{Claim 2.}
+$\mathrm{rank}(K_{\omega})$ is monotonic non-decreasing over $\omega \in [1,20]$
+with slope discontinuities near $\omega \approx 8$--$12$.
+
+\textbf{Claim 3.}
+$\mathrm{entropy}(K_{\omega})$ behaves like an order parameter, rising sharply
+from low-frequency collapse toward high-frequency saturation.
+
+Together, these constitute measurable expressivity transitions driven
+not by architecture or qubit count, but solely by Hamiltonian-coupled frequency.
+
+\vspace{0.6em}
+\noindent
+\textbf{Implications.}
+These results indicate that temporal parametrization of embeddings---even when applied to purely classical features derived from quantum statistics---induces rich changes in kernel spectra. This suggests that time can be treated as a primary driver of representational curvature, analogous to depth in feedforward architectures or width in kernel machines. Temporally-aware QML pipelines may therefore outperform purely architectural scaling in parameter-limited models, and provide richer inductive biases for small-shot regimes.
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\end{document}

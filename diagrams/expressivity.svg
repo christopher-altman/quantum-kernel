@@ -1,0 +1,8 @@
+<svg width="380" height="260" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="360" height="230" fill="#faf9f9" stroke="#444"/>
+  <path d="M30 200 L120 150 L210 120 L290 90 L350 80"
+        stroke="#dd3344" stroke-width="3" fill="none"/>
+  <text x="200" y="240" font-size="14" text-anchor="middle" font-family="sans-serif">
+    ω → increasing frequency → expressivity ↑
+  </text>
+</svg>

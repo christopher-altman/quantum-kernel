@@ -1,0 +1,140 @@
+Metadata-Version: 2.4
+Name: quantum-kernel-expressivity
+Version: 0.1.0
+Summary: Temporal Hamiltonian-driven quantum feature embeddings and expressivity analysis
+Author: Christopher Altman
+License: MIT
+Project-URL: Homepage, https://github.com/your-username/quantum-kernel-expressivity
+Project-URL: Source, https://github.com/your-username/quantum-kernel-expressivity
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pennylane>=0.36
+Requires-Dist: numpy>=1.24
+Requires-Dist: matplotlib>=3.7
+Requires-Dist: scikit-learn>=1.3
+Requires-Dist: scipy>=1.10
+Requires-Dist: torch>=2.2
+Requires-Dist: jupyter>=1.0
+Requires-Dist: nbconvert>=7.0
+Dynamic: license-file
+
+# Quantum Kernel Expressivity & Temporal Feature Embedding
+
+**Christopher Altman**  
+Frontier Lab-Scale Repository Showcasing Hybrid Quantum-Native Models  
+*(C4 dataset, T2 evolution, quantum kernels, VQC, spectral-rank phase transitions)*
+
+[![Python](https://img.shields.io/badge/python-3.10-blue.svg)]()
+[![PennyLane](https://img.shields.io/badge/PennyLane-Quantum-orange.svg)]()
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)]()
+[![Papers With Code](https://img.shields.io/badge/paperswithcode-active-blue.svg)]()
+[![CI](https://img.shields.io/badge/CI-automated-success.svg)]()
+
+---
+
+## ✨ Project Overview
+
+This repository demonstrates that **expressivity in quantum feature embeddings** is not merely architectural, but **dynamical**.
+
+We build hybrid classical datasets whose geometry is induced by a quantum system evolving under:
+
+\[
+H = Z \otimes Z + X \otimes I
+\]
+
+(known internally here as **T2 Entangling Hamiltonian**).
+
+Data points arise from:
+
+1. Sampling random product states  
+2. Evolving under \( U(t) = \exp(-i t H) \)  
+3. Measuring entanglement-bearing observables  
+4. Mapping temporal-quantum statistics into 2D classical embeddings  
+5. Classifying them via:  
+   - quantum kernels  
+   - variational quantum circuits  
+   - classical baselines  
+
+This produces a dataset where classical features encode **latent quantum correlations** that are only partially separable classically—and more efficiently separable quantumly.
+
+---
+
+## 🔬 Key Scientific Outcomes
+
+### 🌀 1. Frequency-Driven Phase Transition
+We show that increasing the encoding frequency \( \omega \) in a quantum feature map leads to:
+
+- rising kernel matrix rank  
+- rising spectral entropy  
+- non-monotonic accuracy curves  
+
+This corresponds to a measurable **expressivity phase transition**.
+
+---
+
+### ⚛️ 2. T2 Temporal Geometry
+The dataset encodes latent features of:
+
+- time evolution  
+- entanglement  
+- oscillatory dynamics  
+
+Classifiers are forced to recover temporal-quantum structure from **strictly classical feature vectors**.
+
+---
+
+### 🧠 3. VQC vs QKS Regime Split
+
+| Model | Strengths | Weaknesses |
+|---|---|---|
+| Classical SVM | Fast; good baseline | Cannot resolve joint temporal-entanglement curvature |
+| Quantum Kernel SVM | Strong separation at optimal ω | Accuracy dips at low/noisy frequencies |
+| VQC | Flexible & smooth | More expensive; harder to optimize |
+
+---
+
+## 📁 Repository Structure
+
+```
+src/
+    dataset_c4.py
+    hamiltonian_evolution.py
+    feature_maps.py
+    quantum_kernels.py
+    vqc_classifier.py
+    torch_qml.py
+    classical_baselines.py
+    analysis_utils.py
+    plot_utils.py
+
+notebooks/
+    01_dataset_and_baseline.ipynb
+    02_quantum_kernel_expressivity.ipynb
+    03_vqc_vs_kernel.ipynb
+
+diagrams/
+results/
+scripts/
+.github/workflows/
+docs/
+```
+
+---
+
+## 🧪 Quickstart
+
+```bash
+pip install -r requirements.txt
+```
+
+```python
+from src.dataset_c4 import generate_hybrid_dataset
+X, y, meta = generate_hybrid_dataset()
+```
+
+---
+
+## License
+
+MIT License

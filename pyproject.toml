@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quantum-kernel-expressivity"
+version = "0.1.0"
+description = "Temporal Hamiltonian-driven quantum feature embeddings and expressivity analysis"
+authors = [
+  { name = "Christopher Altman" }
+]
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+
+dependencies = [
+  "pennylane>=0.36",
+  "numpy>=1.24",
+  "matplotlib>=3.7",
+  "scikit-learn>=1.3",
+  "scipy>=1.10",
+  "torch>=2.2",
+  "jupyter>=1.0",
+  "nbconvert>=7.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/your-username/quantum-kernel-expressivity"
+Source = "https://github.com/your-username/quantum-kernel-expressivity"
+
+[tool.setuptools.packages.find]
+where = ["src"]
