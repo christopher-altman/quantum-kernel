@@ -5,6 +5,7 @@ This repository investigates how expressivity in quantum kernels correlates with
 The implementation is built using PennyLane, PyTorch, and custom kernel-simulation utilities.
 
 This repository contains reproducible implementations of:
+
 	-	quantum kernel estimators for multiple circuit ansätze
 	-	expressivity metrics including rank profiles, spectral decay, and trace norms
 	-	controlled experiments comparing depth, entanglement strength, and encoding dimensionality
