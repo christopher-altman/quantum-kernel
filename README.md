@@ -118,7 +118,7 @@ jupyter lab
   author   = {Altman, Christopher},
   year     = {2025},
   note     = {GitHub repository},
-  url      = {https://github.com/quantum-kernel},
+  url      = {https://github.com/christopher-altman/quantum-kernel},
   urldate  = {2025-12-06},
 }
 ```
