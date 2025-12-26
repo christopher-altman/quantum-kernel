@@ -27,6 +27,61 @@ This repository contains reproducible implementations of:
 
 All experiments can be executed directly via the provided scripts and notebooks. Default configurations reproduce the key expressivity results without modification.
 
+---
+
+### Equation rendering (LaTeX as SVG)
+GitHub renders these equations via **Codecogs** (external) using SVG images:
+
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?\dpi{120}\Large%20K(x,x')%3D%7C%5Clangle%5Cpsi(x)%7C%5Cpsi(x')%5Crangle%7C%5E2" />
+</p>
+
+## Math Snapshot (Kernel expressivity metrics)
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)"
+      srcset="https://latex.codecogs.com/svg.image?%5Cdpi{120}%5CLarge%20%5Ccolor%7Bwhite%7D%20K_%7Bij%7D%3D%7C%5Clangle%5Cpsi(x_i)%7C%5Cpsi(x_j)%5Crangle%7C%5E2">
+    <img src="https://latex.codecogs.com/svg.image?%5Cdpi{120}%5CLarge%20K_%7Bij%7D%3D%7C%5Clangle%5Cpsi(x_i)%7C%5Cpsi(x_j)%5Crangle%7C%5E2" alt="equation">
+  </picture>
+</p>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)"
+      srcset="https://latex.codecogs.com/svg.image?%5Cdpi{120}%5CLarge%20%5Ccolor%7Bwhite%7D%20K%3DV%5CLambda%20V%5E%5Ctop%2C%20%5Cquad%20%5Clambda_1%5Cge%5Clambda_2%5Cge%5Ccdots">
+    <img src="https://latex.codecogs.com/svg.image?%5Cdpi{120}%5CLarge%20K%3DV%5CLambda%20V%5E%5Ctop%2C%20%5Cquad%20%5Clambda_1%5Cge%5Clambda_2%5Cge%5Ccdots" alt="equation">
+  </picture>
+</p>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)"
+      srcset="https://latex.codecogs.com/svg.image?%5Cdpi{120}%5CLarge%20%5Ccolor%7Bwhite%7D%20d_%5Ctext%7Beff%7D(%5Clambda)%3D%5Coperatorname%7BTr%7D%5Cleft(K(K%2B%5Clambda%20I)^{-1}%5Cright)">
+    <img src="https://latex.codecogs.com/svg.image?%5Cdpi{120}%5CLarge%20d_%5Ctext%7Beff%7D(%5Clambda)%3D%5Coperatorname%7BTr%7D%5Cleft(K(K%2B%5Clambda%20I)^{-1}%5Cright)" alt="equation">
+  </picture>
+</p>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)"
+      srcset="https://latex.codecogs.com/svg.image?%5Cdpi{120}%5CLarge%20%5Ccolor%7Bwhite%7D%20%5Cmathcal%7BA%7D(K%2Cyy%5E%5Ctop)%3D%5Cfrac%7B%5Clangle%20K%2Cyy%5E%5Ctop%5Crangle_F%7D%7B%5C%7CK%5C%7C_F%5C%7Cyy%5E%5Ctop%5C%7C_F%7D%20%5Cquad%20%5Ctext%7Bkernel-label%20alignment%7D">
+    <img src="https://latex.codecogs.com/svg.image?%5Cdpi{120}%5CLarge%20%5Cmathcal%7BA%7D(K%2Cyy%5E%5Ctop)%3D%5Cfrac%7B%5Clangle%20K%2Cyy%5E%5Ctop%5Crangle_F%7D%7B%5C%7CK%5C%7C_F%5C%7Cyy%5E%5Ctop%5C%7C_F%7D%20%5Cquad%20%5Ctext%7Bkernel-label%20alignment%7D" alt="equation">
+  </picture>
+</p>
+
+---
+
+## Pipeline
+
+```mermaid
+flowchart LR
+  A[Dataset] --> B[Feature map family + depth];
+  B --> C[Kernel matrix K];
+  C --> D[Spectrum / rank / d_eff];
+  D --> E[Generalization proxy + comparisons];
+```
+
 ___
 
 ## Abstract
