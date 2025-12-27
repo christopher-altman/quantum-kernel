@@ -216,6 +216,8 @@ MIT License. See [LICENSE](LICENSE) for details.
 ## Contact
 
 - **Website:** [christopheraltman.com](https://christopheraltman.com)
+- **Research portfolio:** https://lab.christopheraltman.com/
+- **Portfolio mirror:** https://christopher-altman.github.io/
 - **GitHub:** [github.com/christopher-altman](https://github.com/christopher-altman)
 - **Google Scholar:** [scholar.google.com/citations?user=tvwpCcgAAAAJ](https://scholar.google.com/citations?user=tvwpCcgAAAAJ)
 - **Email:** x@christopheraltman.com
@@ -223,6 +225,7 @@ MIT License. See [LICENSE](LICENSE) for details.
 ---
 
 *Christopher Altman (2025)*
+
 
 
 
